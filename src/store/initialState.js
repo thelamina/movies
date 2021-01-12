@@ -4,3 +4,10 @@ export const searchMovies = {
 	data: null,
 	isSuccessful: false,
 };
+
+export const nominees = {
+	isLoading: false,
+	error: null,
+	data: [],
+	isSuccessful: false,
+};

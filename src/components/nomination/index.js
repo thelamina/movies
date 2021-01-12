@@ -8,6 +8,9 @@ import {
 	List,
 	ListItem,
 	Text,
+	Content,
+	Close,
+	Bold,
 } from './styles/nomination-styles';
 
 export default function Nomination({ show = false, children, ...restProps }) {
@@ -34,10 +37,22 @@ Nomination.ListItem = ({ children, ...restProps }) => {
 	return <ListItem {...restProps}>{children}</ListItem>;
 };
 
+Nomination.Content = ({ children, ...restProps }) => {
+	return <Content {...restProps}>{children}</Content>;
+};
+
 Nomination.Button = ({ children, ...restProps }) => {
 	return <Button {...restProps}>{children}</Button>;
 };
 
+Nomination.Close = ({ children, ...restProps }) => {
+	return <Close {...restProps}>x</Close>;
+};
+
 Nomination.Image = ({ children, ...restProps }) => {
 	return <Image {...restProps} />;
+};
+
+Nomination.Bold = ({ children, ...restProps }) => {
+	return <Bold {...restProps}>{children}</Bold>;
 };

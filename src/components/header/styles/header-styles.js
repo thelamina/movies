@@ -44,4 +44,17 @@ export const Sub = styled.span`
 	padding: 0px;
 `;
 
-export const Link = styled.button``;
+export const Link = styled.button`
+	background: #e08d4f;
+
+	border: 1px solid #e08d4f;
+	cursor: pointer;
+	padding: 10px;
+	color: #fff;
+	outline: none;
+	transition: all 0.2s ease-in-out;
+	&:hover {
+		color: #fff;
+		background: #e08d4f;
+	}
+`;

@@ -23,7 +23,7 @@ export const searchMovies = (query, page = 1) => async (dispatch) => {
 	dispatch(searchMoviesStart());
 	try {
 		const { data } = await axios.post(
-			`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${query}&page=${page}`
+			`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${query}&type=movie&page=${page}`
 		);
 		console.log(data);
 		dispatch(searchMoviesSuccess(data));
