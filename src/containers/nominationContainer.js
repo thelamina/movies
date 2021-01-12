@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { DrawerContext } from '../App';
 
 const NominationContainer = () => {
+	const nomineesList = JSON.parse(localStorage.getItem('nominations'));
 	const nominationState = useSelector((state) => state.nomination);
 	const { data } = nominationState;
 	const context = useContext(DrawerContext);
@@ -12,7 +13,7 @@ const NominationContainer = () => {
 			<Nomination.Close onClick={context.drawerToggler} />
 			<Nomination.Title>Nomination List</Nomination.Title>
 			<Nomination.List>
-				{data.map((mov) => (
+				{nomineesList?.map((mov) => (
 					<Nomination.ListItem>
 						<Nomination.Image
 							src={mov.Poster}
