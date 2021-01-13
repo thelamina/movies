@@ -4,6 +4,7 @@ import {
 	SearchContainer,
 	ResultContainer,
 	NominationContainer,
+	FooterContainer,
 } from '../containers';
 
 const Home = () => {
@@ -13,6 +14,7 @@ const Home = () => {
 			<SearchContainer />
 			<ResultContainer />
 			<NominationContainer />
+			<FooterContainer />
 		</>
 	);
 };

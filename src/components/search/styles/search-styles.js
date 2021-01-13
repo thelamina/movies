@@ -17,6 +17,11 @@ export const Input = styled.input`
 	font-size: 20px;
 	border: 2px solid #757575;
 	color: #757575;
+
+	@media (max-width: 500px) {
+		padding: 14px;
+		font-size: 16px;
+	}
 `;
 
 export const Button = styled.button`
@@ -37,6 +42,15 @@ export const Button = styled.button`
 	opacity: 0.5;
 	transition: all 1s;
 	cursor: default;
+	@media (max-width: 500px) {
+		padding: 10px;
+		width: 38px;
+		right: 10px;
+		top: 6px;
+		height: 38px;
+		font-size: 16px;
+	}
+
 	&:hover {
 		transform: rotate(360deg);
 	}
