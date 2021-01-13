@@ -8,6 +8,6 @@ export const searchMovies = {
 export const nominees = {
 	isLoading: false,
 	error: null,
-	data: [],
+	data: JSON.parse(localStorage.getItem('nominations')) || [],
 	isSuccessful: false,
 };

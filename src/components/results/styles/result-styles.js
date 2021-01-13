@@ -42,6 +42,7 @@ export const ListItem = styled.li`
 	position: relative;
 	max-width: 300px;
 	height: 350px;
+	margin-bottom: 10px;
 `;
 
 export const Image = styled.img`
@@ -76,6 +77,12 @@ export const Button = styled.button`
 			transition: all 0.3s;
 			transform: scale(1.2);
 		}
+	}
+	&:disabled {
+		background: #757575;
+		cursor: not-allowed;
+		pointer-events: none;
+		opacity: 0.65;
 	}
 `;
 

@@ -1,26 +1,42 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-const rotate360 = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+export const Container = styled.div`
+	width: 100%;
+
+	height: 160px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `;
+export const Spinner = styled.svg`
+	animation: rotate 2s linear infinite;
+	margin: -25px 0 0 -25px;
+	width: 50px;
+	height: 50px;
 
-const Spinner = styled.div`
-	animation: ${rotate360} 1s linear infinite;
-	transform: translateZ(0);
+	& .path {
+		stroke: #5652bf;
+		stroke-linecap: round;
+		animation: dash 1.5s ease-in-out infinite;
+	}
 
-	border-top: 2px solid grey;
-	border-right: 2px solid grey;
-	border-bottom: 2px solid grey;
-	border-left: 4px solid black;
-	background: transparent;
-	width: 24px;
-	height: 24px;
-	border-radius: 50%;
+	@keyframes rotate {
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+	@keyframes dash {
+		0% {
+			stroke-dasharray: 1, 150;
+			stroke-dashoffset: 0;
+		}
+		50% {
+			stroke-dasharray: 90, 150;
+			stroke-dashoffset: -35;
+		}
+		100% {
+			stroke-dasharray: 90, 150;
+			stroke-dashoffset: -124;
+		}
+	}
 `;
-
-export default Spinner;

@@ -1,31 +1,44 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { toast } from 'react-toastify';
+
 import { Result, Loading } from '../components';
 import { addMovie } from '../store/actions/nomination';
 
-import heart from '../assets/icons/heart.svg';
-
 const ResultContainer = React.memo(() => {
 	const dispatch = useDispatch();
-
-	const nomineesList = JSON.parse(localStorage.getItem('nominations'));
-
-	console.log(nomineesList);
+	const toastConfig = {
+		position: 'top-center',
+		autoClose: 3000,
+		hideProgressBar: true,
+		closeOnClick: true,
+		pauseOnHover: true,
+		draggable: true,
+		progress: undefined,
+	};
 	const searchMoviesState = useSelector(({ searchMovies }) => searchMovies);
+	const nomineeState = useSelector(({ nomination }) => nomination);
 	const { data, isLoading } = searchMoviesState;
+	const nominee = nomineeState;
 
 	const addMovieHandler = (movie) => {
-		// console.log(movie);
 		try {
 			if (movie) {
 				dispatch(addMovie(movie));
+				if (nominee.data.length === 5) {
+					toast.info(`You have nominated 5 movies`, toastConfig);
+				} else {
+					toast.success(
+						`${movie.Title.toUpperCase()} successfully nominated`,
+						toastConfig
+					);
+				}
 			}
 		} catch (ex) {
 			console.log(ex);
 		}
 	};
-	console.log(data);
 
 	if (isLoading) {
 		return <Loading />;
@@ -46,14 +59,16 @@ const ResultContainer = React.memo(() => {
 								<Result.Title>{movie.Title}</Result.Title>
 								<Result.Text>{movie.Year}</Result.Text>
 								<Result.Button
-									disabled={nomineesList?.includes(movie)}
+									disabled={nominee.data?.find(
+										(m) => m.imdbID === movie.imdbID
+									)}
 									onClick={() => addMovieHandler(movie)}
 								/>
 							</Result.ListItem>
 						))
 					) : (
 						<p style={{ textAlign: 'center' }}>
-							Type in to the search box
+							Search for your favourite movie(s) to nominate
 						</p>
 					)}
 				</Result.List>

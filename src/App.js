@@ -1,4 +1,7 @@
 import { useMemo, createContext, useState } from 'react';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.min.css';
 import { Home } from './pages';
 
 export const DrawerContext = createContext();
@@ -12,6 +15,7 @@ const App = () => {
 	return (
 		<DrawerContext.Provider value={value}>
 			<Home />
+			<ToastContainer />
 		</DrawerContext.Provider>
 	);
 };

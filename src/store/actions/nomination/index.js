@@ -26,19 +26,16 @@ export const nominationCleanup = () => ({
 export const addMovie = (movie) => async (dispatch) => {
 	dispatch(nominationStart());
 	try {
-		console.log(movie);
-
 		dispatch(nominationAdd(movie));
 	} catch (e) {
 		dispatch(nominationFail(e));
 	}
 };
 
-export const removeMovie = (movieId) => async (dispatch) => {
+export const removeMovie = (movie) => async (dispatch) => {
 	dispatch(nominationStart());
 	try {
-		console.log(movieId);
-		dispatch(nominationRemove(movieId));
+		dispatch(nominationRemove(movie));
 	} catch (e) {
 		dispatch(nominationFail(e));
 	}

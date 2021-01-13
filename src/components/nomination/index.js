@@ -11,6 +11,7 @@ import {
 	Content,
 	Close,
 	Bold,
+	Empty,
 } from './styles/nomination-styles';
 
 export default function Nomination({ show = false, children, ...restProps }) {
@@ -47,6 +48,10 @@ Nomination.Button = ({ children, ...restProps }) => {
 
 Nomination.Close = ({ children, ...restProps }) => {
 	return <Close {...restProps}>x</Close>;
+};
+
+Nomination.Empty = ({ children, ...restProps }) => {
+	return <Empty {...restProps}>{children}</Empty>;
 };
 
 Nomination.Image = ({ children, ...restProps }) => {

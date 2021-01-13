@@ -31,9 +31,9 @@ Result.ListItem = ({ children, ...restProps }) => {
 	return <ListItem {...restProps}>{children}</ListItem>;
 };
 
-Result.Button = ({ children, ...restProps }) => {
+Result.Button = ({ disabled, children, ...restProps }) => {
 	return (
-		<Button {...restProps}>
+		<Button disabled={disabled} {...restProps}>
 			<ButtonImage src={heart} alt='heart' />
 		</Button>
 	);

@@ -13,7 +13,10 @@ export const Container = styled.div`
 	transform: translateX(${({ show }) => (!show ? '110%' : '3%')});
 	transition: transform 0.5s ease-out;
 
-	@media (max-width: 500px) {
+	@media (max-width: 1100px) {
+		width: 50%;
+	}
+	@media (max-width: 700px) {
 		width: 98%;
 	}
 `;
@@ -28,6 +31,11 @@ export const Title = styled.h3`
 `;
 
 export const Text = styled.p``;
+export const Empty = styled.h3`
+	text-align: center;
+	margin-top: 50px;
+	color: #757575;
+`;
 
 export const Bold = styled.span`
 	font-weight: bold;
