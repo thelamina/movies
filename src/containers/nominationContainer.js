@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Loading, Nomination } from '../components';
 import { useSelector, useDispatch } from 'react-redux';
 import { DrawerContext } from '../App';
@@ -26,7 +26,7 @@ const NominationContainer = () => {
 				});
 			}
 		} catch (ex) {
-			console.log(ex);
+			console.error(ex);
 		}
 	};
 	if (isLoading) {

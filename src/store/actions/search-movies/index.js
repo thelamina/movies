@@ -25,7 +25,6 @@ export const searchMovies = (query, page = 1) => async (dispatch) => {
 		const { data } = await axios.post(
 			`https://www.omdbapi.com/?apikey=${process.env.REACT_APP_OMDB_API_KEY}&s=${query}&type=movie&page=${page}`
 		);
-		console.log(data);
 		dispatch(searchMoviesSuccess(data));
 	} catch (e) {
 		dispatch(searchMoviesFail(e));

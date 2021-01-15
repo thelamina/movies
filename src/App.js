@@ -11,6 +11,7 @@ const App = () => {
 	const drawerToggler = () => {
 		setDrawerOpen(!drawerOpen);
 	};
+	//eslint-disable-next-line
 	const value = useMemo(() => ({ drawerOpen, drawerToggler }), [drawerOpen]);
 	return (
 		<DrawerContext.Provider value={value}>
